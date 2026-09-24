@@ -1,0 +1,3 @@
+struct Cursor {               // defines a new data type called Cursor, struct let us create our own data type even though its a type its not a class as its not saved in the memory its just a blueprint 
+    int position;             // the position defines the index of the current byte in the input stream 
+};                            // we store a int index inside position instead of the pointer reference which is i am pointer directly to the memory which btw is valid but we havent learned it yet so yea.
