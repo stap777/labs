@@ -20,5 +20,8 @@ public class main {
 
         System.out.println("found " + interfaceList.size() + " network interface.");
 
+        for (NetworkInterface ni : interfaceList) {
+            System.out.println(ni.getName());
+        }
     }
 }
