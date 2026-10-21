@@ -1,10 +1,12 @@
+import java.net.Inet4Address;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Arrays;
+import java.net.InetAddress;
+
 
 
 public class main {
@@ -36,12 +38,23 @@ public class main {
                     }
 
                     System.out.printf("%02x", mac[i] & 0xff);
-
                 }
-                System.out.println();
-            }
-            Enumeration<InetAddress> addresses = ni.getInetAddresses();
 
+                System.out.println();
+
+                Enumeration<InetAddress> addresses = ni.getInetAddresses();
+
+                while (addresses.hasMoreElements()) {
+                    InetAddress address = addresses.nextElement();
+                    System.out.println(address.getHostAddress()
+                    + " |IPv4=" + (address instanceof java.net.Inet4Address)
+                    + " |IPv6=" + (address instanceof java.net.Inet6Address)
+                    + " | loopback=" + address.isLoopbackAddress()
+                    + " | linkLocal=" + address.isLinkLocalAddress()
+                    );
+                }
+            }
+            
         }
     }
 }
